@@ -1,0 +1,226 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fonte roboto */
+    padding: 0;
+    /* Padding de 0 (espaçamento interno) */
+    margin: 0;
+    /* Margin de 0 (espaçamento externo) */
+}
+
+nav .nav-menu ul a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+.container {
+    /* Não sei da onde vem esse container, mas ok */
+    max-width: 1000px;
+    /* largura máxima de 1000px*/
+    padding: 0 15px;
+    /*padding de 0 em cima e baixo, 15px nos dois lados*/
+    margin: 0 auto;
+    /*margin de 0 em cima e baixo, auto nos dois lados*/
+}
+
+.navbar {
+    /* classe navbar da tag nav */
+    position: relative;
+    /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/position */
+    display: flex;
+    /* torna o elemento flexivel */
+    z-index: 295;
+    /* A propriedade z-index CSS define a ordem z de um elemento posicionado e seus descendentes ou flex items. Os elementos sobrepostos com um índice z maior cobrem aqueles com um menor */
+    background: #0C0F0E;
+    color: white;
+}
+
+.navbar .nav-brand h1 {
+    margin-left: 15px; /* adicionando 15 pixels longe da margem */
+    /* classe navbar (tag: nav) .nav-brand e dentro tem h1 */
+    position: relative;
+    /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/position */
+    z-index: 100;
+    /* A propriedade z-index CSS define a ordem z de um elemento posicionado e seus descendentes ou flex items. Os elementos sobrepostos com um índice z maior cobrem aqueles com um menor */
+}
+
+nav .nav-menu {
+    /* tag nav com nav-menu */
+    display: flex;
+    /* elemento flexivel */
+    margin-left: auto;
+    /* lado esquerdo de margin, valor auto */
+}
+
+nav .nav-menu ul {
+    /* nav com nav-menu ul adiciona*/
+    list-style: none;
+    /* remove as bolinhas da lista nao ordenada*/
+}
+
+nav .nav-menu ul li {
+    /* nav com nav-menu ul li adiciona */
+    display: inline;
+    /* elementos em uma linha */
+    margin-right: 20px;
+    /* margin-right (lado direito do margin) com valor de 20px */
+    font-size: 1rem;
+    /* tamanho da fonte do li de 1.5rem */
+    color: #fff;
+    /* cor das palavras de branco */
+    line-height: 2.188;
+    /* define a altura de espaçamento das palavras */
+}
+
+input[type=checkbox] {
+    /*  input do tipo checkbox adiciona */
+    display: none;
+    /* display none para nao aparecer quando estiver em versão de desktop */
+}
+
+.toggle-resp {
+    /* botao do menu mobile adiciona */
+    display: none;
+    /* display none para nao aparecer enquanto nao estiver com menos de 780px */
+    position: relative;
+    /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/position */
+    width: 60px;
+    /* largura de 60px (do botao menu) */
+    height: 60px;
+    /* altura de 60px (do botao menu) */
+    border-radius: 10px;
+    /* Adicionando circulo nas bordas de 10px */
+    background-color: transparent;
+    /* background-color transparente para ficar um "png" */
+    z-index: 290;
+    /* para ficar por cima de tudo que tiver */
+}
+
+.toggle-resp input[type=checkbox]:checked~.bars {
+    /* botao menu input do tipo checkbox for ativado pega o .bars que é do svg (path's) adiciona */
+    width: 60px;
+    /* largura de 60px */
+    cursor: pointer;
+    /* cursor pointer, ponteiro pra dizer que é clicavel */
+}
+
+.bars .line {
+    /* .bars .line (path's) adiciona */
+    fill: none;
+    /* como se fosse uma cor, adiciona cores diferentes, mas no caso nenhuma */
+    stroke: white;
+    /* cor da linha, no caso é branco */
+    stroke-width: 4;
+    /* largura do svg (linha) */
+    stroke-linecap: round;
+    /* adiciona bordas aredondadas */
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    /* transição */
+}
+
+.bars .line.top {
+    /* .bars .line.top (path's) adiciona */
+    stroke-dasharray: 40 172;
+    /* O atributo stroke-dasharray é um atributo de apresentação que define o padrão de travessões e lacunas usados ​​para pintar o contorno da forma; */
+
+}
+
+.bars .line.middle {
+    stroke-dasharray: 40 111;
+}
+
+.bars .line.bottom {
+    stroke-dasharray: 40 172;
+}
+
+input[type=checkbox]:checked~.toggle-resp .bars .top {
+    /* input do tipo checkbox checado pega os irmaos .bars .top */
+    stroke-dashoffset: -132px;
+    /* O atributo stroke-dashoffset especifica a distância entre o inicio traço e o fim. */
+}
+
+input[type=checkbox]:checked~.toggle-resp .bars .middle {
+    stroke-dashoffset: -71px;
+}
+
+input[type=checkbox]:checked~.toggle-resp .bars .bottom {
+    stroke-dashoffset: -132px;
+}
+
+@media (max-width: 780px) {
+
+    /* quando chegar em 780px, faça */
+    .toggle-resp {
+        display: block;
+        /* vai aparecer apenas quando for 780px- com display block */
+    }
+
+    nav .nav-menu ul {
+        /* nav com .nav-menu ul adiciona */
+        position: absolute;
+        /* posição absoluta ao UL */
+        left: 0;
+        /* left 0 */
+        right: 0;
+        /* right 0 */
+        height: 100vh;
+        /* vai ocupar todo espaço da tela */
+        top: -16px;
+        padding: 1rem;
+        /* espaçamento interno de 1rem */
+        background-color: black;
+        /* background color de preto */
+        text-align: center;
+        /* textos alinhando para a esquerda */
+        z-index: 120;
+        /* acima de outras coisas */
+    }
+
+    nav .nav-menu ul li {
+        /* nav .nav-menu ul li adiciona */
+        position: relative;
+        /* posição relative */
+        display: block;
+        /* display block, nada do lado */
+        margin-left: 0;
+        /* margin left 0 */
+        z-index: -1;
+        /* nao sei isso */
+    }
+
+    input[type=checkbox] {
+        /* input do tipo checkbox adiciona */
+        position: absolute;
+        /* posição abosoluta */
+        width: 60px;
+        /* largura de 60px */
+        height: 60px;
+        /* altura de 60px */
+        top: 0;
+        /* topo 0 */
+        z-index: 300;
+        /* por cima de outras coisas */
+        margin: 0;
+        /* margin de 0 */
+        opacity: 0;
+        /* opacidade de 0 */
+        display: block;
+        /* display block, nada do lado */
+    }
+
+    nav .nav-menu ul {
+        /* nav .nav-menu ul adiciona */
+        transform: translateX(-150%);
+        /* transforma na rota X para -150% */
+        transition: 500ms;
+        /* transição suave */
+    }
+
+    input[type=checkbox]:checked~ul {
+        /* input do tipo checkbox tiver checked com todos irmaos ul adiciona */
+        transform: translateX(0%);
+        /* transforma na rota X para 0% */
+        transition: 500ms;
+        /* transição suave */
+    }
+}

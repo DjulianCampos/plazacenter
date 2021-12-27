@@ -1,0 +1,13 @@
+body::-webkit-scrollbar{
+    width: 5px;
+    color: black;
+}
+
+body::-webkit-scrollbar-button{
+    color: black;
+}
+
+body::-webkit-scrollbar-thumb{
+    color: black;
+    height: 3px;
+}
